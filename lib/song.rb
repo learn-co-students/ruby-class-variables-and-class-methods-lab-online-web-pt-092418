@@ -6,17 +6,10 @@ class Song
   
   @@count = 0 
   
-  # @@artists = []
-  # @@artist_count = {}
-  # @@genre_count = {}
-  
   def initialize(name, artist, genre)
     @name = name
     @artist = artist 
     @genre = genre 
-    # @@count =+ 1
-    # @@genres = []
-    # Control for duplicates when you code your .genres class method, not when you add genres to the original @@genres array. 
   end 
   
   def self.count
