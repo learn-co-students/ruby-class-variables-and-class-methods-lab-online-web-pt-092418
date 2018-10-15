@@ -5,22 +5,25 @@ class Song
   attr_accessor :genre 
   
   @@count = 0 
+  @@artists = []
   
   def initialize(name, artist, genre)
     @name = name
     @artist = artist 
     @genre = genre 
+    @@count += 1
+    @@artists
   end 
   
   def self.count
     @@count 
-  end 
+  end
   
   def self.artists
+    @@artists
   end 
   
   def self.genres
-    # This array should contain only unique genres––no duplicates!
   end 
   
   def self.genre_count
