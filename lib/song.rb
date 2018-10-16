@@ -16,11 +16,14 @@ class Song
     @@artists.uniq!
   end
   def self.genre_count
-    @@gen = Hash[@@genres.group_by {|x| x}.map{|k,v| [k,v.count]}]
-    binding.pry
+    Hash[@@genres.group_by {|x| x}.map{|k,v| [k,v.count]}]
+    # group_by wil return a hash where the keys are the values in the array,
+    # and the values are the total of same values.
+    #with the map you are meerly counting the values in the array
+    #binding.pry
   end
   def self.artist_count
-    @@art = Hash[@@artists.group_by {|x| x}.map{|k,v| [k,v.count]}]
+    Hash[@@artists.group_by {|x| x}.map{|k,v| [k,v.count]}]
   end
 
   def initialize (name, artist, genre)
