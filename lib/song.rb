@@ -27,7 +27,7 @@ class Song
   def self.genre_count
     Hash[@@genres.group_by {|x| x}.map{|k,v| [k,v.count]}]
     # group_by wil return a hash where the keys are the values in the array,
-    # and the values are the total of same values.
+    # and the values are the total of same values {rap=>["rap","rap"], pop=>["pop"]}.
     #with the map you are meerly counting the values in the array
     #binding.pry
   end
