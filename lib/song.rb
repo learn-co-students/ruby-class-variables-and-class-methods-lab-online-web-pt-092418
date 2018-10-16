@@ -16,7 +16,7 @@ class Song
     @@artists.uniq!
   end
   def self.genre_count
-    @@gen = @@genres.reduce({}){|g,n| g[n] += 1; g}
+    @@gen = Hash[@@genres.group_by {|x| x}.map{|k,v| [k,v.count]}]
   end
   def self.artist_count
     @@art = Hash[@@artists.group_by {|x| x}.map{|k,v| [k,v.count]}]
