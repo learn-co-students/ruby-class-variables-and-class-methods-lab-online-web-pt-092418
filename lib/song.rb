@@ -24,13 +24,17 @@ class Song
   def self.artists
     @@artists.uniq!
   end
+
   def self.genre_count
-    Hash[@@genres.group_by {|x| x}.map{|k,v| [k,v.count]}]
     # group_by wil return a hash where the keys are the values in the array,
     # and the values are the total of same values {rap=>["rap","rap"], pop=>["pop"]}.
-    #with the map you are meerly counting the values in the array
-    #binding.pry
+    grouped = @@genres.group_by {|x| x}
+    #with the map you are meerly counting the values in the array: [["rap", 2], ["pop", 1]]
+    counted_groups = grouped.map{|k,v| [k,v.count]}
+    # finally with the Hash[] you will convert into the hash that is nedded to pass
+    Hash[counted_groups]
   end
+
   def self.artist_count
     Hash[@@artists.group_by {|x| x}.map{|k,v| [k,v.count]}]
   end
